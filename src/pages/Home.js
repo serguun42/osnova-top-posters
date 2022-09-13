@@ -30,7 +30,7 @@ export default function Home() {
     <>
       <h1 className="home__title default-title-font">{process.env.REACT_APP_SITE_LONG} Top Posters</h1>
       <h4 className="home__title default-title-font">
-        Лучшие авторы на DTF по избранным подсайтам за последние 30 дней
+        Лучшие авторы на {process.env.REACT_APP_SITE_LONG} по избранным подсайтам за последние 30 дней
       </h4>
 
       <div className="home__action-cards-container">
