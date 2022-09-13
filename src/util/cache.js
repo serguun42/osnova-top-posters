@@ -1,7 +1,7 @@
 import dispatcher from './dispatcher';
 import LogMessageOrError from './log';
 
-const CACHE_STORAGE_NAME = 'cacher_react_cache_storage';
+const CACHE_STORAGE_NAME = 'osnova_top_posters_react_cache_storage';
 
 /**
  * @param {boolean} showMessage
@@ -26,14 +26,14 @@ export default function ClearCache() {
 dispatcher.link('clearCache', ClearCache);
 
 if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production')
-  navigator.serviceWorker.register(`/${process.env.REACT_APP_SITE_CODE}/service-worker.js`, {
-    scope: `/${process.env.REACT_APP_SITE_CODE}/`,
+  navigator.serviceWorker.register(`/osnova-top-posters/${process.env.REACT_APP_SITE_CODE}/service-worker.js`, {
+    scope: `/osnova-top-posters/${process.env.REACT_APP_SITE_CODE}/`,
   });
 
 window.addEventListener('load', () => {
   if (process.env.NODE_ENV !== 'production') return;
 
-  fetch(`/${process.env.REACT_APP_SITE_CODE}/build_hash`)
+  fetch(`/osnova-top-posters/${process.env.REACT_APP_SITE_CODE}/build_hash`)
     .then((res) => {
       if (res.status === 200) return res.text();
       return Promise.reject(new Error(`Status code ${res.status} ${res.statusText}`));

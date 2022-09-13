@@ -1,0 +1,12 @@
+.subsites-list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+
+  width: 100%;
+
+  margin-bottom: 128px;
+}

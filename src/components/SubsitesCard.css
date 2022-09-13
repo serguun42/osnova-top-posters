@@ -1,0 +1,239 @@
+.subsite-card {
+  display: block;
+  position: relative;
+
+  width: 100%;
+  margin: 0 auto 24px;
+  padding: 16px 20px;
+
+  color: var(--text);
+
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: var(--card);
+
+  transition: box-shadow 0.2s ease-in-out 0s;
+  box-shadow: 0 0 2px 0 var(--button-shadow);
+}
+
+@media (max-width: 800px) {
+  .subsite-card {
+    margin: 0 auto 12px;
+    padding: 12px 16px;
+
+    border-radius: 4px;
+  }
+}
+
+.subsite-card:last-of-type {
+  margin-bottom: 0;
+}
+
+.subsite-card:hover,
+.subsite-card:active,
+.subsite-card:focus {
+  box-shadow: 0 5px 10px 2px var(--button-shadow);
+}
+
+.subsite-card__header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+
+  margin: 0;
+  padding: 0;
+
+  word-break: break-word;
+  line-break: normal;
+
+  color: var(--text);
+}
+
+.subsite-card__header__icon,
+.subsite-card__header__icon:visited {
+  display: block;
+  position: relative;
+
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+
+  margin-right: 24px;
+
+  border-radius: 6px;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  text-decoration: none;
+}
+
+.subsite-card__header__name,
+.subsite-card__header__name:visited {
+  display: block;
+  position: relative;
+
+  flex: 1 1 auto;
+
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 30px;
+
+  text-decoration: none;
+}
+
+.subsite-card__header__name:hover,
+.subsite-card__header__name:active,
+.subsite-card__header__name:focus {
+  color: var(--primary);
+}
+
+.subsite-card__header__icon:hover + .subsite-card__header__name,
+.subsite-card__header__icon:active + .subsite-card__header__name,
+.subsite-card__header__icon:focus + .subsite-card__header__name {
+  color: var(--primary);
+}
+
+.subsite-card__header__name .material-icons {
+  display: inline-block;
+
+  margin-left: 6px;
+
+  font-size: 20px;
+  vertical-align: -3px;
+}
+
+.subsite-card__header__switch {
+  display: block;
+  position: relative;
+
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  border-radius: 32px;
+
+  margin-left: 16px;
+  padding: 16px;
+
+  font-size: 32px;
+  line-height: 1em;
+}
+
+.subsite-card__header__switch:hover,
+.subsite-card__header__switch:active,
+.subsite-card__header__switch:focus {
+  color: var(--primary);
+}
+
+.subsite-card__header__switch .material-icons {
+  font-size: 32px;
+  line-height: 1em;
+}
+
+.subsite-card__inner {
+  display: none;
+}
+
+.subsite-card__list {
+  display: block;
+  position: relative;
+
+  max-width: 600px;
+
+  margin: 0 auto;
+  padding: 16px 0 0;
+}
+
+.subsite-card__poster {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+
+  width: 100%;
+
+  margin: 0 auto 12px;
+  padding: 8px;
+
+  border-bottom: 1px solid #ddd;
+
+  text-decoration: none;
+}
+
+.is-dark .subsite-card__poster {
+  border-bottom-color: #555;
+}
+
+.subsite-card__poster:last-of-type {
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.subsite-card__poster__avatar,
+.subsite-card__poster__avatar:visited {
+  display: block;
+  position: relative;
+
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+
+  margin-right: 8px;
+
+  border-radius: 16px;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  text-decoration: none;
+}
+
+.subsite-card__poster__name,
+.subsite-card__poster__name:visited {
+  display: block;
+  position: relative;
+
+  flex: 1 1 auto;
+
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+
+  text-decoration: none;
+}
+
+.subsite-card__poster__name:hover,
+.subsite-card__poster__name:active,
+.subsite-card__poster__name:focus {
+  color: var(--primary);
+}
+
+.subsite-card__poster__avatar:hover + .subsite-card__poster__name,
+.subsite-card__poster__avatar:active + .subsite-card__poster__name,
+.subsite-card__poster__avatar:focus + .subsite-card__poster__name {
+  color: var(--primary);
+}
+
+.subsite-card__poster__karma:not(.subsite-card__poster__karma--positive):not(.subsite-card__poster__karma--negative) {
+  color: #ddd;
+}
+
+.is-dark
+  .subsite-card__poster__karma:not(.subsite-card__poster__karma--positive):not(.subsite-card__poster__karma--negative) {
+  color: #555;
+}
+
+.subsite-card__poster__karma--positive {
+	color: #4CAF50;
+}
+
+.subsite-card__poster__karma--negative {
+	color: #F44336;
+}

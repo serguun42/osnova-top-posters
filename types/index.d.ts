@@ -8,10 +8,10 @@ export type Poster = {
 export type SubsiteMetaData = {
   name: string;
   avatar: string;
-  cover: string;
+  cover?: string;
   url: string;
   id: number;
-  order?: number;
+  priority?: number;
 };
 
 export type SubsiteDataSorted = {

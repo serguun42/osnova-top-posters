@@ -61,7 +61,7 @@
 
 @media (max-width: 800px) {
   .home__action-cards-container {
-    margin: 8px auto;
+    margin: 8px auto 24px;
   }
 }
 

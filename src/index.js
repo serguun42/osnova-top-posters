@@ -5,8 +5,6 @@ import App from './App';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import Message from './components/Message';
-import Popup from './components/Popup';
-import MediaViewer from './components/MediaViewer';
 import ScrollToTop from './util/scroll-to-top';
 import dispatcher from './util/dispatcher';
 import store from './store';
@@ -43,8 +41,6 @@ root.render(
         </Route>
       </Routes>
     </BrowserRouter>
-    <MediaViewer />
     <Message />
-    <Popup />
   </Provider>
 );

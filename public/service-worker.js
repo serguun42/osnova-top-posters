@@ -1,8 +1,8 @@
 /* eslint-disable */
-const CACHE_STORAGE_NAME = 'cacher_react_cache_storage';
+const CACHE_STORAGE_NAME = 'osnova_top_posters_react_cache_storage';
 
 self.addEventListener('install', (e) => {
-  e.waitUntil(caches.open(CACHE_STORAGE_NAME).then((cache) => cache.addAll(['/tj/', '/dtf/'])));
+  e.waitUntil(caches.open(CACHE_STORAGE_NAME).then((cache) => cache.addAll(['/osnova-top-posters/dtf'])));
 });
 
 self.addEventListener('activate', () => {});
@@ -15,16 +15,8 @@ self.addEventListener('beforeinstallprompt', () => {});
  * @param {Request} request
  * @returns {Promise<Response>}
  */
-function fromNetwork(request) {
-  const requestedURL = new URL(request.url);
-
-  const putToCacheFlag =
-    requestedURL.origin === self.location.origin &&
-    [/\/$/, /\.(woff2|woff|ttf|js|css|png|json)$/i].some((regexp) => regexp.test(requestedURL.pathname));
-
-  if (!putToCacheFlag) return fetch(request);
-
-  return fetch(request).then((response) => {
+const fromNetwork = (request) =>
+  fetch(request).then((response) => {
     if (response.status === 200)
       caches
         .open(CACHE_STORAGE_NAME)
@@ -33,22 +25,20 @@ function fromNetwork(request) {
 
     return response.clone();
   });
-}
 
 /**
  * **From Cache**
  *
  * @param {Request} request
  */
-function fromCache(request) {
-  return caches
+const fromCache = (request) =>
+  caches
     .open(CACHE_STORAGE_NAME)
     .then((cache) => cache.match(request))
     .then((matching) => {
       if (matching) return matching;
       return Promise.reject('no-match');
     });
-}
 
 self.addEventListener(
   'fetch',
@@ -60,12 +50,28 @@ self.addEventListener(
     let apiCalledFlag = false;
 
     try {
-      const parsedURL = new URL(request.url || '', 'https://cacher.serguun42.ru');
+      const parsedURL = new URL(request.url || '', 'https://serguun42.ru');
 
-      if (/^\/api\//i.test(parsedURL.pathname)) apiCalledFlag = true;
+      if (/^\/osnova-top-posters\/data\//i.test(parsedURL.pathname)) apiCalledFlag = true;
     } catch (e) {}
 
-    if (apiCalledFlag) event.respondWith(fromNetwork(request).catch(() => fromCache(request)));
-    else event.respondWith(fromCache(request).catch(() => fromNetwork(request)));
+    if (apiCalledFlag)
+      event.respondWith(
+        fromNetwork(request)
+          .catch(() => fromCache(request))
+          .catch((e) => {
+            console.warn(e);
+            return new Response('');
+          })
+      );
+    else
+      event.respondWith(
+        fromCache(request)
+          .catch(() => fromNetwork(request))
+          .catch((e) => {
+            console.warn(e);
+            return new Response('');
+          })
+      );
   }
 );

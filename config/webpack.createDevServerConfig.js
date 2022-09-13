@@ -75,6 +75,21 @@ function createDevServerConfig(proxy, allowedHost) {
         middleware: evalSourceMapMiddleware(devServer),
       });
 
+      /**
+       * This registers user provided middleware for proxy reasons
+       * Moved here from `paths.proxySetup` (src/setupProxy.js)
+       */
+      if (typeof process.env.DATA_PROXY_TARGET === 'string')
+        middlewares.unshift({
+          name: 'user-provided-data-proxy',
+          path: '/osnova-top-posters/data/',
+          middleware: createProxyMiddleware({
+            target: process.env.DATA_PROXY_TARGET,
+            changeOrigin: true,
+            secure: /^https:/.test(process.env.DATA_PROXY_TARGET) && !/\blocalhost\b/.test(process.env.DATA_PROXY_TARGET)
+          }),
+        });
+
       // Redirect to `PUBLIC_URL` or `homepage` from `package.json` if url not match
       middlewares.push({
         name: 'redirect-to-public-url',

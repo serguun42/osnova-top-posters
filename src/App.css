@@ -13,7 +13,8 @@
   display: block;
   position: relative;
 
-  width: 1650px;
+  width: 100%;
+  max-width: 800px;
 
   margin: 0 auto;
   padding: 0;
@@ -21,8 +22,6 @@
 
 @media (max-width: 1650px) {
   #content {
-    width: 100%;
-    max-width: 800px;
     padding: 0 12px;
   }
 }

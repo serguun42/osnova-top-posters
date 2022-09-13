@@ -1,28 +1,28 @@
 {
-  "name": "Cacher DEV",
-  "short_name": "Cacher DEV",
-  "theme_color": "#E8A427",
+  "name": "Osnova Top Posters",
+  "short_name": "Osnova Top Posters",
+  "theme_color": "#66D7FF",
   "icons": [
     {
-      "src": "/tj/img/tj/icons/round/192x192.png",
+      "src": "/osnova-top-posters/dtf/img/tj/icons/round/192x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/tj/img/tj/icons/round/512x512.png",
+      "src": "/osnova-top-posters/dtf/img/tj/icons/round/512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/tj/img/tj/icons/maskable/192x192.png",
+      "src": "/osnova-top-posters/dtf/img/tj/icons/maskable/192x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "/tj/img/tj/icons/maskable/512x512.png",
+      "src": "/osnova-top-posters/dtf/img/tj/icons/maskable/512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
