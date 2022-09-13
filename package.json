@@ -5,7 +5,7 @@
     "react",
     "osnova"
   ],
-  "description": "Frontend for TJournal and DTF cacher platform built with React 18.",
+  "description": "Frontend for Osnova Top Posters built with React 18.",
   "author": "serguun42",
   "license": "BSL-1.0",
   "repository": {
@@ -54,7 +54,7 @@
     "react-dom": "18.1.0",
     "react-redux": "8.0.1",
     "react-refresh": "0.11.0",
-    "react-router-dom": "6.3.0",
+    "react-router-dom": "^6.3.0",
     "resolve": "1.22.0",
     "resolve-url-loader": "4.0.0",
     "sanitize-html": "2.7.0",
@@ -70,7 +70,6 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build:dtf": "node scripts/build.js --site=dtf",
-    "build:tj": "node scripts/build.js --site=tj",
     "lint": "eslint . --ext .js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "devDependencies": {

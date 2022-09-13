@@ -1,6 +1,6 @@
-# Cacher Frontend React
+# Osnova Top Posters
 
-Frontend for [TJournal and DTF cacher platform](https://cacher.serguun42.ru) built with React 18.
+Frontend for [Osnova Top Posters](https://serguun42.ru/osnova-top-posters/) built with React 18. Based on [Cacher-Frontend-React](https://github.com/serguun42/cacher-frontend-react).
 
 ## Configuration, building and launching
 
@@ -33,10 +33,6 @@ Files [`.env.dtf`](./.env.dtf) and [`.env.tj`](./.env.tj) contain environment va
 | `REACT_APP_SITE_LINK`         | `dtf.ru` or `tjournal.ru`                                                                                               |
 | `REACT_APP_PRIMARY_COLOR`     | Hex color, used in [manifest](./config/manifest.template.json) and [`index.html`](./public/index.html) templates        |
 | `REACT_APP_CDN_DOMAIN`        | Origin of Osnova's CDN                                                                                                  |
-| `REACT_APP_OTHER_CACHER_LINK` | Link to same Cacher for other site                                                                                      |
-| `REACT_APP_OTHER_CACHER_NAME` | `Cacher DTF` or `Cacher TJ`                                                                                             |
-| `REACT_APP_LOGIN_PAGE`        | URL of login page, where auth is set                                                                                    |
-| `REACT_APP_REQUEST_PAGE`      | URL of permission request page                                                                                          |
 
 You may pass more variables, see standard `react-scripts` and `webpack` docs.
 
@@ -46,19 +42,11 @@ You may create own local env (e.g. [.env.development.local](./.env.development.l
 
 - set `HTTPS=true` to use https on local development server. If applied, set `SSL_CRT_FILE` and `SSL_KEY_FILE` as paths to certificate and key files.
 - `PORT` – port of dev server.
-- `API_PROXY_TARGET` and `API_PROXY_COOKIE` – if set, webpack will proxy requests to `/api` to target with stated proxy – see [webpack.createDevServerConfig.js](./config/webpack.createDevServerConfig.js#L78).
 - `DISABLE_ESLINT_PLUGIN=true` – disables esling plugin for webpack (warning overlay).
 
 ### Manifest and PWA
 
 Manifest is built with `npm run build` from [template](./config/manifest.template.json) in [`scripts/build`](./scripts/build.js#L213). PWA is controlled by [Service Worker](./public/service-worker.js) (*Cache first for static, network first for API*) and [`cache.js`](./src/util/cache.js).
-
-## API
-
-OpenAPI docs available at [`api.yml`](./public/docs/api.yml). Project uses Swagger UI in runtime and precompiled Redoc `.html` bundle.
-
-- `npm exec -- ts-to-openapi -f types/*.d.ts` – Convert Typescript defenitions to YAML format (*for new types*).
-- `npm run generate-openapi-redoc` – Build static Redoc API
 
 ---
 
